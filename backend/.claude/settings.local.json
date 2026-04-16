@@ -12,7 +12,8 @@
       "Bash(bash -s -- --no-onboard)",
       "Bash(git clone *)",
       "Bash(npm install *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }

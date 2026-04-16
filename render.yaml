@@ -1,0 +1,29 @@
+services:
+  # ── Backend API ──────────────────────────────────────────────────────────────
+  - type: web
+    name: nuba-ai-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false          # set manually in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a secure random value
+      - key: ALLOWED_ORIGINS
+        sync: false          # set to your Vercel/Netlify frontend URL
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GROQ_VISION_MODEL
+        value: llama-3.2-11b-vision-preview
+      - key: GOOGLE_CLIENT_ID
+        sync: false          # optional — leave empty to disable Google OAuth
+    healthCheckPath: /

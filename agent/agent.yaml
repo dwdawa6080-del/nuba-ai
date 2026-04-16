@@ -1,0 +1,10 @@
+name: "Nuba Assistant"
+version: "1.0.0"
+model: "qwen2.5-coder:1.5b"   # ← تم التغيير هنا
+language: "ar"
+description: "تطبيق نوبة - مساعد برمجي ذكي"
+tools:
+  - name: "create_file"
+    description: "ينشئ ملفاً جديداً ويكتب فيه كود"
+  - name: "explain_code"
+    description: "يشرح الكود المحدد باللغة العربية"

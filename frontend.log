@@ -1,0 +1,113 @@
+
+> nuba-ai@0.1.0 start
+> react-scripts start
+
+(node:3732) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:3732) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:3732) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+[eslint] 
+src\App.tsx
+  Line 21:11:  'user' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 21:11:  'user' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src\App.tsx
+  Line 21:11:  'user' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+[1m[33mWARNING[39m[22m in [1m[eslint] 
+src\App.tsx
+  Line 21:11:  'user' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+[39m[22m
+
+webpack compiled with [1m[33m1 warning[39m[22m
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/pages/Login.tsx:79:11
+TS2322: Type '{ onSuccess: (credentialResponse: any) => Promise<void>; onError: () => void; locale: string; text: "signin_with"; shape: "rectangular"; theme: "filled_blue"; width: string; }' is not assignable to type 'IntrinsicAttributes & { onSuccess: (credentialResponse: CredentialResponse) => void; onError?: (() => void) | undefined; promptMomentNotification?: MomentListener | undefined; useOneTap?: boolean | undefined; containerProps?: Omit<...> | undefined; } & Omit<...> & GsiButtonConfiguration'.
+  Property 'locale' does not exist on type 'IntrinsicAttributes & { onSuccess: (credentialResponse: CredentialResponse) => void; onError?: (() => void) | undefined; promptMomentNotification?: MomentListener | undefined; useOneTap?: boolean | undefined; containerProps?: Omit<...> | undefined; } & Omit<...> & GsiButtonConfiguration'.
+  [0m [90m 77 |[39m           onSuccess[33m=[39m{handleGoogleSuccess}
+   [90m 78 |[39m           onError[33m=[39m{() [33m=>[39m setError([32m'فشل تسجيل الدخول بـ Google'[39m)}
+  [31m[1m>[22m[39m[90m 79 |[39m           locale[33m=[39m[32m"ar"[39m
+   [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 80 |[39m           text[33m=[39m[32m"signin_with"[39m
+   [90m 81 |[39m           shape[33m=[39m[32m"rectangular"[39m
+   [90m 82 |[39m           theme[33m=[39m[32m"filled_blue"[39m[0m
+
+ERROR in src/pages/Register.tsx:63:11
+TS2322: Type '{ onSuccess: (credentialResponse: any) => Promise<void>; onError: () => void; locale: string; text: "signup_with"; shape: "rectangular"; theme: "filled_blue"; width: string; }' is not assignable to type 'IntrinsicAttributes & { onSuccess: (credentialResponse: CredentialResponse) => void; onError?: (() => void) | undefined; promptMomentNotification?: MomentListener | undefined; useOneTap?: boolean | undefined; containerProps?: Omit<...> | undefined; } & Omit<...> & GsiButtonConfiguration'.
+  Property 'locale' does not exist on type 'IntrinsicAttributes & { onSuccess: (credentialResponse: CredentialResponse) => void; onError?: (() => void) | undefined; promptMomentNotification?: MomentListener | undefined; useOneTap?: boolean | undefined; containerProps?: Omit<...> | undefined; } & Omit<...> & GsiButtonConfiguration'.
+  [0m [90m 61 |[39m           onSuccess[33m=[39m{handleGoogleSuccess}
+   [90m 62 |[39m           onError[33m=[39m{() [33m=>[39m setError([32m'فشل التسجيل بـ Google'[39m)}
+  [31m[1m>[22m[39m[90m 63 |[39m           locale[33m=[39m[32m"ar"[39m
+   [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m           text[33m=[39m[32m"signup_with"[39m
+   [90m 65 |[39m           shape[33m=[39m[32m"rectangular"[39m
+   [90m 66 |[39m           theme[33m=[39m[32m"filled_blue"[39m[0m
+
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+ERROR in src/pages/Register.tsx:63:11
+TS2322: Type '{ onSuccess: (credentialResponse: any) => Promise<void>; onError: () => void; locale: string; text: "signup_with"; shape: "rectangular"; theme: "filled_blue"; width: string; }' is not assignable to type 'IntrinsicAttributes & { onSuccess: (credentialResponse: CredentialResponse) => void; onError?: (() => void) | undefined; promptMomentNotification?: MomentListener | undefined; useOneTap?: boolean | undefined; containerProps?: Omit<...> | undefined; } & Omit<...> & GsiButtonConfiguration'.
+  Property 'locale' does not exist on type 'IntrinsicAttributes & { onSuccess: (credentialResponse: CredentialResponse) => void; onError?: (() => void) | undefined; promptMomentNotification?: MomentListener | undefined; useOneTap?: boolean | undefined; containerProps?: Omit<...> | undefined; } & Omit<...> & GsiButtonConfiguration'.
+  [0m [90m 61 |[39m           onSuccess[33m=[39m{handleGoogleSuccess}
+   [90m 62 |[39m           onError[33m=[39m{() [33m=>[39m setError([32m'فشل التسجيل بـ Google'[39m)}
+  [31m[1m>[22m[39m[90m 63 |[39m           text[33m=[39m[32m"signup_with"[39m
+   [90m    |[39m           [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 64 |[39m           shape[33m=[39m[32m"rectangular"[39m
+   [90m 65 |[39m           theme[33m=[39m[32m"filled_blue"[39m
+   [90m 66 |[39m           width[33m=[39m[32m"350"[39m[0m
+
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+No issues found.
