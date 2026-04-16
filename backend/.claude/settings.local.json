@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /c/Users/admin/nuba-ai/agent/*)",
+      "Bash(nslookup _mongodb._tcp.cluster0.j9mfjeh.mongodb.net)",
+      "Bash(nslookup cluster0.j9mfjeh.mongodb.net)",
+      "Bash(curl -s --max-time 10 https://cloud.mongodb.com -o /dev/null -w \"%{http_code}\")",
+      "Bash(ping -n 3 8.8.8.8)",
+      "Bash(nslookup *)",
+      "Bash(node *)",
+      "Bash(curl *)",
+      "Bash(bash -s -- --no-onboard)",
+      "Bash(git clone *)",
+      "Bash(npm install *)",
+      "Bash(git add *)"
+    ]
+  }
+}
