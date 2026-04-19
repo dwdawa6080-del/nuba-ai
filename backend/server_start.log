@@ -1,0 +1,7 @@
+[dotenv@17.3.1] injecting env (7) from .env -- tip: ⚙️  override existing env vars with { override: true }
+✅ متصل بـ MongoDB Atlas
+ðŸš€ Ø§Ù„Ø®Ø§Ø¯Ù… ÙŠØ¹Ù…Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù†ÙØ° 5000
+
+SIGINT received — إغلاق اتصال MongoDB...
+⚠️  انقطع الاتصال بـ MongoDB — سيحاول Mongoose إعادة الاتصال تلقائياً
+MongoDB connection closed.
