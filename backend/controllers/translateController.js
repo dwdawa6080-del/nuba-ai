@@ -1,4 +1,5 @@
 const Groq = require('groq-sdk');
+const { trackTokenUsage } = require('../middleware/tenant');
 
 const SUPPORTED_LANGUAGES = {
   ar: 'العربية',
@@ -66,6 +67,10 @@ exports.translate = async (req, res) => {
     const translatedText = completion.choices[0]?.message?.content?.trim();
     if (!translatedText) {
       return res.status(502).json({ message: 'لم يُرجع النموذج ترجمة' });
+    }
+
+    if (req.tenant) {
+      await trackTokenUsage(req.tenant.tenantId, completion.usage?.total_tokens || 0);
     }
 
     res.json({ translatedText });

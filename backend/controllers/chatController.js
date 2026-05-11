@@ -1,4 +1,5 @@
 const Groq = require('groq-sdk');
+const { trackTokenUsage } = require('../middleware/tenant');
 
 const SYSTEM_PROMPT = `أنت مساعد تطبيق نوبة AI، تتحدث العربية الفصحى الحديثة مع لمسة دافئة ودودة.
 هدفك الأساسي هو مساعدة المستخدمين في:
@@ -57,6 +58,10 @@ exports.chat = async (req, res) => {
     const reply = completion.choices[0]?.message?.content?.trim();
     if (!reply) {
       return res.status(502).json({ message: 'لم يُرجع النموذج رداً' });
+    }
+
+    if (req.tenant) {
+      await trackTokenUsage(req.tenant.tenantId, completion.usage?.total_tokens || 0);
     }
 
     res.json({ reply });

@@ -1,0 +1,5 @@
+agno>=2.2.10
+fastembed
+pymongo[srv]
+pypdf
+python-dotenv

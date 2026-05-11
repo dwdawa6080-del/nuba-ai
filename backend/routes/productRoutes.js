@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const product = await Product.findByIdAndUpdate(req.id, req.body, { new: true });
+  const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.json(product);
 });
 

@@ -1,4 +1,5 @@
 const Groq = require('groq-sdk');
+const { trackTokenUsage } = require('../middleware/tenant');
 
 const VALID_MIME_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 const VISION_MODEL = process.env.GROQ_VISION_MODEL || 'llama-3.2-11b-vision-preview';
@@ -49,6 +50,10 @@ exports.describe = async (req, res) => {
     const description = completion.choices[0]?.message?.content?.trim();
     if (!description) {
       return res.status(502).json({ message: 'لم يُرجع النموذج وصفاً للصورة' });
+    }
+
+    if (req.tenant) {
+      await trackTokenUsage(req.tenant.tenantId, completion.usage?.total_tokens || 0);
     }
 
     res.json({ description });

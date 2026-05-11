@@ -74,11 +74,13 @@ const authRoutes = require('./routes/authRoutes');
 const translateRoutes = require('./routes/translateRoutes');
 const visionRoutes = require('./routes/visionRoutes');
 const chatRoutes = require('./routes/chatRoutes');
+const tenantRoutes = require('./routes/tenantRoutes');
 const connectDB = require('./config/db');
 
 app.use('/api/auth', authLimiter, authRoutes);
 const productRoutes = require('./routes/productRoutes');
 app.use('/api/products', productRoutes);
+app.use('/api/tenants', authLimiter, tenantRoutes);
 
 app.use('/api/translate', translateLimiter, translateRoutes);
 app.use('/api/vision', visionLimiter, visionRoutes);
@@ -95,10 +97,40 @@ app.use((err, req, res, next) => {
 });
 
 // Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø«Ù… Ø¨Ø¯Ø¡ Ø§Ù„Ø®Ø§Ø¯Ù…
+// Monthly token quota reset — aligns to midnight, then checks every 24 h
+function scheduleMidnightReset() {
+  const Tenant = require('./models/Tenant');
+
+  async function resetIfFirstOfMonth() {
+    if (new Date().getDate() === 1) {
+      try {
+        const now = new Date();
+        const r = await Tenant.updateMany(
+          {},
+          { $set: { usedTokens: 0, resetDate: new Date(now.getFullYear(), now.getMonth() + 1, 1) } }
+        );
+        console.log(`✅ Monthly token reset: ${r.modifiedCount} tenants reset`);
+      } catch (e) {
+        console.error(`❌ Monthly token reset error:`, e.message);
+      }
+    }
+  }
+
+  const now = new Date();
+  const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0) - now;
+
+  setTimeout(() => {
+    resetIfFirstOfMonth();
+    setInterval(resetIfFirstOfMonth, 24 * 60 * 60 * 1000);
+  }, msUntilMidnight);
+
+  console.log(`🚀 Token reset job scheduled (first check in ${Math.round(msUntilMidnight / 60000)} min)`);
+}
+
 connectDB().then(() => {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
-    console.log(`ðŸš€ Ø§Ù„Ø®Ø§Ø¯Ù… ÙŠØ¹Ù…Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù†ÙØ° ${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
   });
+  scheduleMidnightReset();
 });
-
