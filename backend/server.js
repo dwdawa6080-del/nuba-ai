@@ -104,10 +104,10 @@ app.use((err, req, res, next) => {
 });
 
 // Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø«Ù… Ø¨Ø¯Ø¡ Ø§Ù„Ø®Ø§Ø¯Ù…
-connectDB().then(() => {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`ðŸš€ Ø§Ù„Ø®Ø§Ø¯Ù… ÙŠØ¹Ù…Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù†ÙØ° ${PORT}`);
-  });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`ðŸš€ Ø§Ù„Ø®Ø§Ø¯Ù… ÙŠØ¹Ù…Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù†ÙØ° ${PORT}`);
 });
+
+connectDB();
 
