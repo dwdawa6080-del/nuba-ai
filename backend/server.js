@@ -70,14 +70,22 @@ const chatLimiter = rateLimit({
 });
 
 // Ø§Ù„Ù…Ø³Ø§Ø±Ø§Øª
-const authRoutes = require('./routes/authRoutes');
+const authRoutes    = require('./routes/authRoutes');
 const translateRoutes = require('./routes/translateRoutes');
-const visionRoutes = require('./routes/visionRoutes');
-const chatRoutes = require('./routes/chatRoutes');
-const tenantRoutes = require('./routes/tenantRoutes');
-const connectDB = require('./config/db');
+const visionRoutes  = require('./routes/visionRoutes');
+const chatRoutes    = require('./routes/chatRoutes');
+const tenantRoutes  = require('./routes/tenantRoutes');
+const ragRoutes     = require('./routes/ragRoutes');
+const connectDB     = require('./config/db');
 
 const tenantLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const ragLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 20,
   standardHeaders: true,
@@ -88,6 +96,7 @@ app.use('/api/auth', authLimiter, authRoutes);
 const productRoutes = require('./routes/productRoutes');
 app.use('/api/products', productRoutes);
 app.use('/api/tenants', tenantLimiter, tenantRoutes);
+app.use('/api/rag',     ragLimiter,    ragRoutes);
 
 app.use('/api/translate', translateLimiter, translateRoutes);
 app.use('/api/vision', visionLimiter, visionRoutes);
